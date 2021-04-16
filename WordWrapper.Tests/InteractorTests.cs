@@ -15,26 +15,20 @@ namespace WordWrapper.Tests
 
         }
 
-        private Interactor CreateInteractor()
-        {
-            return new Interactor();
-        }
+        private Interactor CreateInteractor() => new Interactor();
 
         [Test]
         public void WrapWords_StateUnderTest_ExpectedBehavior()
         {
-            // Arrange
-            var interactor = this.CreateInteractor();
+            Interactor interactor = CreateInteractor();
             string text = File.ReadAllText("text.txt");
             string expectedText = File.ReadAllText("expected_result.txt");
             int width = 40;
 
-            // Act
-            var result = interactor.WrapWords(
+            string result = interactor.WrapText(
                 text,
                 width);
 
-            // Assert
             result.Should().Be(expectedText);
         }
     }
