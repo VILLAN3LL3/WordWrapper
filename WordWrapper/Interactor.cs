@@ -15,8 +15,9 @@ namespace WordWrapper
         public string WrapText(string text, int width)
         {
             IList<string> paragraphs = _paragraphSplitter.SplitTextIntoParagraphs(text);
-            IList<IList<string>> splittedParagraphs = _paragraphSplitter.SplitParagraphsIntoWords(paragraphs);
-            IList<IList<string>> wrappedParagraphs = _wordWrapper.WrapParagraphs(splittedParagraphs, width);
+
+            IList<string> wrappedParagraphs = _wordWrapper.WrapParagraphs(paragraphs, width);
+
             return _paragraphSplitter.JoinParagraphs(wrappedParagraphs);
         }
     }

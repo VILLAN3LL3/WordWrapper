@@ -1,20 +1,29 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace WordWrapper
 {
     public class WordWrapper
     {
-        public IList<IList<string>> WrapParagraphs(IList<IList<string>> paragraphs, int width)
+        public IList<string> WrapParagraphs(IList<string> paragraphs, int width)
         {
-            var wrappedParagraphs = new List<IList<string>>();
+            var wrappedParagraphs = new List<string>();
 
-            foreach (IList<string> paragraph in paragraphs)
+            foreach (string paragraph in paragraphs)
             {
-                wrappedParagraphs.Add(WrapParagraph(paragraph, width));
+                IList<string> splittedParagraph = SplitParagraphIntoWords(paragraph);
+                var wrappedParagraph = WrapParagraph(splittedParagraph, width);
+                wrappedParagraphs.Add(JoinLines(wrappedParagraph));
             }
             return wrappedParagraphs;
         }
+
+        public string JoinLines(IList<string> lines) => string.Join(Constants.LINE_SEPARATOR, lines);
+
+        public IList<string> SplitParagraphIntoWords(string text) => text.Split(
+            new string[] { Constants.LINE_SEPARATOR, Constants.WORD_SEPARATOR },
+            StringSplitOptions.RemoveEmptyEntries);
 
         public IList<string> WrapParagraph(IList<string> paragraph, int width)
         {
