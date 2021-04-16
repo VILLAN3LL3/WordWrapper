@@ -1,9 +1,10 @@
-﻿namespace WordWrapper
+﻿using System;
+
+namespace WordWrapper
 {
     public static class Constants
     {
-        public const string PARAGRAPH_SEPARATOR = "\r\n\r\n";
-        public const string LINE_SEPARATOR = "\r\n";
+        public readonly static string PARAGRAPH_SEPARATOR = Environment.NewLine + Environment.NewLine;
         public const string WORD_SEPARATOR = " ";
     }
 }

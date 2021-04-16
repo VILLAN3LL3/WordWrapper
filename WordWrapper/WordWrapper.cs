@@ -19,10 +19,10 @@ namespace WordWrapper
             return wrappedParagraphs;
         }
 
-        public string JoinLines(IList<string> lines) => string.Join(Constants.LINE_SEPARATOR, lines);
+        public string JoinLines(IList<string> lines) => string.Join(Environment.NewLine, lines);
 
         public IList<string> SplitParagraphIntoWords(string text) => text.Split(
-            new string[] { Constants.LINE_SEPARATOR, Constants.WORD_SEPARATOR },
+            new string[] { Environment.NewLine, Constants.WORD_SEPARATOR },
             StringSplitOptions.RemoveEmptyEntries);
 
         public IList<string> WrapParagraph(IList<string> paragraph, int width)
