@@ -33,7 +33,7 @@ namespace WordWrapper
             for (int i = 0; i < paragraph.Count; i++)
             {
                 int lengthOfNextWord = paragraph[i].Length;
-                if (line.Length + lengthOfNextWord > width - 1)
+                if (line.Length + lengthOfNextWord > width - 1 && line.Length > 0)
                 {
                     lines.Add(line.ToString());
                     line.Clear();
