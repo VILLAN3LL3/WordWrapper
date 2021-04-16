@@ -18,13 +18,4 @@
     <ProjectReference Include="..\WordWrapper\WordWrapper.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="expected_result.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="text.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>
