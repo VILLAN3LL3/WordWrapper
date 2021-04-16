@@ -6,14 +6,6 @@ namespace WordWrapper.Tests
     [TestFixture]
     public class InteractorTests
     {
-
-
-        [SetUp]
-        public void SetUp()
-        {
-
-        }
-
         private Interactor CreateInteractor() => new Interactor();
 
         [Test]
